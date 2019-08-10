@@ -1,6 +1,6 @@
 const db = require('../src/config/mongo');
 const Tool = require('../src/models/Tool');
-const mocks = require('../mocks/tools');
+const mocks = require('./mocks/tools');
 
 describe('Tools', () => {
   before((done) => {
