@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 const PORT = 3000;
 
@@ -10,6 +11,9 @@ mongoose.connect(
       useNewUrlParser: true,
     }
 );
+
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 app.use(require('./router'));
 
