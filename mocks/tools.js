@@ -1,6 +1,5 @@
 const tools = [
   {
-    id: 1,
     title: 'Notion',
     link: 'https://notion.so',
     description:
@@ -8,7 +7,6 @@ const tools = [
     tags: ['organization', 'planning', 'collaboration', 'writing', 'calendar'],
   },
   {
-    id: 2,
     title: 'json-server',
     link: 'https://github.com/typicode/json-server',
     description:
@@ -16,7 +14,6 @@ const tools = [
     tags: ['api', 'json', 'schema', 'node', 'github', 'rest', 'web'],
   },
   {
-    id: 3,
     title: 'fastify',
     link: 'https://www.fastify.io/',
     description:
