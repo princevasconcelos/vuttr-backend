@@ -1,9 +1,32 @@
 # Very Useful Tools to Remember
 
-I'm a frontend developer who study backend in the free time, so my knowledges in this field aren't good, but at least i try :)  
-
 ## Stack
 
 - Nodejs
 - Express
 - Mongodb
+
+## Running
+
+```
+git clone ... && yarn install
+yarn start
+```
+
+## Testing
+
+- Mocha
+- Supertest
+
+```
+yarn test
+```
+
+## Styling
+
+- Eslint with google pattern
+
+## Errors handling
+
+The API send different types of message depending on the current node enviroment.
+It isn't safe to send error logs to production
