@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 
-const db = process.env.NODE_ENV === 'test' ? 'tools-test' : 'tools';
+const isTest = process.env.NODE_ENV === 'test';
+const database = isTest ? 'tools-test' : 'tools';
 
 mongoose.connect(
-    `mongodb+srv://princevasconcelos:princevasconcelos@cluster0-t4dtv.mongodb.net/${db}?retryWrites=true&w=majority`,
+    `mongodb+srv://princevasconcelos:princevasconcelos@cluster0-t4dtv.mongodb.net/${database}?retryWrites=true&w=majority`,
     {
       useNewUrlParser: true,
     },
@@ -11,7 +12,7 @@ mongoose.connect(
 
 mongoose.connection
     .once('open', () => {
-      console.log(`mongoose connected with db ${db}`);
+      console.log(`using database: ${database}`);
     })
     .on('error', (err) => {
       console.log('failed to connect to mongodb', err);
