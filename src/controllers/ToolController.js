@@ -1,4 +1,5 @@
 const toolMock = require('../../mocks/tools');
+const Tool = require('../models/Tool');
 
 const ToolController = {
   getTools(req, res) {
@@ -7,7 +8,7 @@ const ToolController = {
     if (q) {
       return res
           .status(200)
-          .send(
+          .json(
               toolMock.filter((t) =>
                 t.title.toLowerCase().includes(q.toLowerCase())
               )
@@ -17,20 +18,29 @@ const ToolController = {
     if (tag) {
       return res
           .status(200)
-          .send(
+          .json(
               toolMock.filter((tool) => tool.tags.find((t) => t.includes(tag)))
           );
     }
 
-    return res.status(200).send(toolMock);
+    return res.status(200).json(toolMock);
   },
 
-  createTool(req, res) {
-    return res.status(201).send('created');
+  async createTool(req, res) {
+    const {title, link, description, tags} = req.body;
+
+    const tool = await Tool.create({
+      title,
+      link,
+      description,
+      tags,
+    });
+
+    return res.status(201).json(tool);
   },
 
   deleteTool(req, res) {
-    return res.status(204).send('deleted');
+    return res.status(204).send();
   },
 };
 
